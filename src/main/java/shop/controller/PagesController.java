@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,7 @@ import shop.bean.Mailer;
 import shop.dao.OrderDAO;
 import shop.dao.TransactionDAO;
 import shop.dao.UserDAO;
+import shop.entity.Admin;
 import shop.entity.Order;
 import shop.entity.ShopCart;
 import shop.entity.Transaction;
@@ -133,7 +136,7 @@ public class PagesController {
 			User user = userDao.getDetailByEmail(email.trim());
 			if (user != null) {
 				
-				int random = (int) Math.floor(((Math.random() * 899999) + 100000));/// random sinh sá»‘ cÃ³ 6 chá»¯ sá»‘
+				int random = (int) Math.floor(((Math.random() * 899999) + 100000));/// random sinh sÃ¡Â»â€˜ cÃƒÂ³ 6 chÃ¡Â»Â¯ sÃ¡Â»â€˜
 				String passReset=String.valueOf(random);
 				
 				String from = "DNT_BICYCLE_SHOP_2021";
@@ -205,10 +208,11 @@ public class PagesController {
 		List<Order> orders=orderDao.getListOrderByTrans(idTrans);
 		Transaction trans=transactionDao.getTransById(idTrans);
 		
-		
-		if (trans.getUser().getId() != user.getId()) {
-			System.out.print(user.getId());
-			return "pages/error404";
+		if (user != null) {
+			if (trans.getUser().getId() != user.getId()) {
+				System.out.print(user.getId());
+				return "pages/error404";
+			}
 		}
 		
 		
@@ -228,9 +232,11 @@ public class PagesController {
 		LocalDateTime now = LocalDateTime.now();  
 		Order order=orderDao.getOrderById(orderId);
 		
-		if (order.getTransaction().getUser().getId() != user.getId()) {
-			System.out.print(user.getId());
-			return "pages/error404";
+		if (user != null) {
+			if (order.getTransaction().getUser().getId() != user.getId()) {
+				System.out.print(user.getId());
+				return "pages/error404";
+			}
 		}
 		
 		order.setStatus(true);
@@ -239,7 +245,6 @@ public class PagesController {
 		
 		int idTrans=order.getTransaction().getId();
 		List<Order> orders=orderDao.getListOrderByTrans(idTrans);
-		// xÃ©t Ä‘iá»�u kiá»‡n cáº­p nháº­t Transaction
 		if (ShopService.checkUpdateTrans(orders)) {
 			Transaction trans=transactionDao.getTransById(idTrans);
 			trans.setStatus(true);
@@ -247,10 +252,14 @@ public class PagesController {
 		}
 		model.addAttribute("message","Update Status Success");
 		model.addAttribute("orders", orders);
+		if (user == null) {
+			return "redirect:/admin/chitiet/userOrders/"+idTrans+".htm";
+		}
 		return "redirect:/pages/my_account/userOrders/"+idTrans+".htm";
 	}
 	
 	//delete order -> check delete Transaction
+	@SuppressWarnings("unused")
 	@RequestMapping(value="my_account/userOrders/delete/{orderId}",method = RequestMethod.GET)
 	public String deleteOrders(ModelMap model,@PathVariable("orderId") int orderId,HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -258,29 +267,50 @@ public class PagesController {
 		
 		Order order=orderDao.getOrderById(orderId);
 		
-		//check lá»—i userLogin
-		if (order.getTransaction().getUser().getId() != user.getId()) {
-			System.out.print(user.getId());
-			return "pages/error404";
+		if (user != null) {
+			if (order.getTransaction().getUser().getId() != user.getId()) {
+				System.out.print(user.getId());
+				return "pages/error404";
+			}
 		}
-		
 		int idTrans=order.getTransaction().getId();
 		orderDao.delete(orderId);
 		
 		List<Order> orders=orderDao.getListOrderByTrans(idTrans);
 		if (orders.size()!=0) {
+			if (ShopService.checkUpdateTrans(orders)) {
+				Transaction trans=transactionDao.getTransById(idTrans);
+				trans.setStatus(true);
+				transactionDao.createOrUpdate(trans);
+			}
 			order.getTransaction().setAmount(order.getTransaction().getAmount().add(order.getAmount().multiply(BigDecimal.valueOf(-1))));
 			transactionDao.createOrUpdate(order.getTransaction());
 			model.addAttribute("message","Delete Success");
 			model.addAttribute("orders", orders);
-			return "redirect:/pages/my_account/userOrders/"+idTrans+".htm";
+			if (user == null) {
+				return "redirect:/admin/chitiet/userOrders/"+idTrans+".htm";
+			}
+			else return "redirect:/pages/my_account/userOrders/"+idTrans+".htm";
 		}
 		else {
 			model.addAttribute("message","Delete Orders Success");
 			transactionDao.delete(idTrans);
-			List<Transaction> Trans=transactionDao.getListTransByUser(user.getId());
-			model.addAttribute("Trans", Trans);
-			return "pages/my_account";
+			
+			if (user == null) {
+				List<Transaction> Trans=transactionDao.getListTrans();
+				PagedListHolder pagedListHolder = new PagedListHolder(Trans);
+				int page = ServletRequestUtils.getIntParameter(request, "p", 0);
+				pagedListHolder.setPage(page);
+				pagedListHolder.setMaxLinkedPages(2);
+				pagedListHolder.setPageSize(5);
+				model.addAttribute("pagedListHolder", pagedListHolder);
+				return "admin/dsOrder";
+			}
+			else {
+				List<Transaction> Trans=transactionDao.getListTransByUser(user.getId());
+				model.addAttribute("Trans", Trans);
+				return "pages/my_account";
+			}
 		}
 	}
 	
@@ -328,7 +358,6 @@ public class PagesController {
 		}
 		
 		if (kt) {
-			// xá»­ lÃ½ lÆ°u 
 			user.setEmail(email);
 			user.setPhone(phone);
 			user.setAddress(address);
@@ -425,7 +454,7 @@ public class PagesController {
 				String from=con_email.trim();
 				body="From Name: "+ con_name+" - Email: "+con_email+body;
 				subject="Chăm sóc khách hàng - "+subject;
-			    String to="dntbicycleshop@gmail.com"; // mÃ£ hÃ³a vÃ o file conf sau
+			    String to="dntbicycleshop@gmail.com"; // mÃƒÂ£ hÃƒÂ³a vÃƒÂ o file conf sau
 				mailer.send(from, to, subject, body);
 				model.addAttribute("message", "Send Email Sucess !");
 			}
@@ -433,7 +462,7 @@ public class PagesController {
 		catch (Exception ex) {
 			// TODO: handle exception
 			ex.printStackTrace();
-			model.addAttribute("message", "Không thể gửi mail!");
+			model.addAttribute("message", "Gửi thư thất bại!");
 		}
 		
 		return "pages/contact_us";

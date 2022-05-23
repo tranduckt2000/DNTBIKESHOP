@@ -147,45 +147,4 @@ public class AdminController {
 			}
 	}
 	
-//	@RequestMapping(value="update", method=RequestMethod.POST)
-//	public String update(ModelMap model, HttpServletRequest request, @ModelAttribute("detailAdmin") Admin adminEdit, 
-//			@RequestParam("passAdmin") String newpass, BindingResult errors) {
-//		
-//		model.addAttribute("sua_saidinhdang", errors.hasErrors());
-//		if(adminEdit.getName().trim().length() == 0) {
-//			errors.rejectValue("name", "adminEdit", "Vui lÃ²ng nháº­p há»� tÃªn");
-//		}
-//		if(adminEdit.getUsername().trim().length()==0) {
-//			errors.rejectValue("phone", "userEdit", "Vui lÃ²ng nháº­p Username");
-//		}
-//		/*if(errors.hasErrors()) {
-//			return home(model);
-//		}*/
-//		else {
-//			User user1=userDao.getDetailByEmail(userEdit.getEmail().trim());
-//			User user2=userDao.getDetailByPhone(userEdit.getPhone().trim());
-//			if (user1!=null && user1.getId()!=userEdit.getId()) {
-//				model.addAttribute("message","Email Ä‘Ã£ tá»“n táº¡i");
-//				model.addAttribute("update", false);
-//				return home(model, request);
-//			}
-//			else if (user2!=null && user2.getId()!=userEdit.getId()) {
-//				model.addAttribute("message","Sá»‘ Ä‘iá»‡n thoáº¡i Ä‘Ã£ Ä‘Æ°á»£c Ä‘Äƒng kÃ½");
-//				model.addAttribute("update", false);
-//				return home(model, request);
-//			}
-//		}
-//		if(newpass.trim().length() != 0) {
-//			userEdit.setPassword(ShopService.encryptPassword(newpass.trim()));
-//		}
-//		else {
-//			System.out.print(userEdit.getId());
-//			User user_tam= userDao.getUserById(userEdit.getId());
-//			userEdit.setPassword(user_tam.getPassword());
-//		}
-//		model.addAttribute("update", manageUserDAO.updated(userEdit));
-//		return home(model, request);
-//	}
-	
-	
 }

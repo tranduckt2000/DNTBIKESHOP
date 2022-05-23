@@ -71,7 +71,7 @@ public class ShopController {
 	@RequestMapping("search")
 	public String index1(ModelMap model,HttpServletRequest request) {
 		
-		String text=request.getParameter("search");
+		String text=request.getParameter("searchInput");
 		System.out.println(text);
 		List<Bicycle> list=bicycleDao.getBicycleByName(text);
 		for(Bicycle i: list) {
@@ -199,7 +199,6 @@ public class ShopController {
 	@RequestMapping(value="checkout",method = RequestMethod.POST)
 	public String checkoutSave(ModelMap model, HttpServletRequest request,@Validated @ModelAttribute("detailTransaction") Transaction trans,
 			BindingResult errors) {
-		// test cÃ¡c ráº±ng buá»™c
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("userLogin");
 		List<ShopCart> list=cartDao.getCartByUser(user.getId());

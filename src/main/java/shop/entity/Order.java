@@ -20,7 +20,7 @@ public class Order {
 	private BigDecimal amount;
 	private String note;
 	private boolean status;
-	
+
 	@ManyToOne
 	@JoinColumn(name="transactionID")
 	private Transaction transaction;

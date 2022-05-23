@@ -110,7 +110,7 @@
 												<form action="admin/bicycle/edit/${item.id}.htm">
 													<button class="btn btn-info" type="submit"
 														data-toggle="tooltip" data-placement="top" title="Sửa">
-														<span class="material-icons ">sửa</span>
+														<i class="material-icons">edit</i>
 													</button>
 												</form>
 												<form action="admin/bicycle/delete.htm" method="post">
@@ -124,7 +124,7 @@
 												<button class="btn btn-danger delete_btn mb-2"
 													data-toggle="tooltip" data-placement="top" title="Xoá"
 													type="button">
-													<span class="material-icons delete_btn">xóa</span>
+													<i class="material-icons delete_btn">delete</i>
 												</button>
 											</div>
 										</td>

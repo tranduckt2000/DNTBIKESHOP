@@ -66,7 +66,6 @@ public class ManageBicycleController {
 		if (admin==null) {
 			return "pages/error404";
 		}
-		
 		List<Bicycle> bicycleList = manageBicycleDAO.getListBicycle();
 		PagedListHolder pagedListHolder = new PagedListHolder(bicycleList);
 		int page = ServletRequestUtils.getIntParameter(request, "p", 0);

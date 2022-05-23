@@ -71,8 +71,8 @@ public class ShopService {
 			total=total.add(order.getAmount().multiply(BigDecimal.valueOf(order.getQuantity())));
 		}
 		
-		if(total.compareTo(BigDecimal.valueOf(1500000))==-1) {
-			ship=total.divide(BigDecimal.valueOf(20));
+		if(total.compareTo(BigDecimal.valueOf(10000000))==-1) {
+			ship=total.divide(BigDecimal.valueOf(1));
 		}
 		
 		return ship;

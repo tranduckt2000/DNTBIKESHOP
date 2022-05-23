@@ -762,11 +762,6 @@
 		// Get all <li>
 		var lis = document.getElementById('navbar_main').querySelectorAll(
 				'li a');
-		/*  lis.forEach((item, index) => {
-		 	
-		 	item.className += " active";
-		     console.log({ index, item })
-		   }); */
 		var item = lis[0];
 		item.className += " active";
 

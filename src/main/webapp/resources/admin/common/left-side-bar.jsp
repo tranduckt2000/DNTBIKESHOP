@@ -25,6 +25,11 @@
 					data-original-title="QUẢN LÝ TÀI KHOẢN"> <span
 						class="micon dw dw-ruler"></span> <span class="text-yellow">Quản lý người dùng</span>
 				</a></li>
+				<li class="dropdown" id="qluser" style="display: block"><a
+					href="admin/chitiet.htm" class="dropdown-toggle no-arrow"
+					data-toggle="tooltip" data-placement="right" title=""> <span
+						class="micon dw dw-ruler"></span> <span class="text-yellow">Quản lý đơn hàng</span>
+				</a></li>
 				<li>
 					<div class="dropdown-divider"></div>
 				</li>
