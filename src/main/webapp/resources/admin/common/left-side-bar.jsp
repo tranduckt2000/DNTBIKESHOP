@@ -15,7 +15,7 @@
 					<div class="dropdown-divider"></div>
 				</li>
 				<li class="dropdown" id="qlh" style="display: block"><a
-					href="admin/flower.htm" class="dropdown-toggle no-arrow"
+					href="admin/bicycle.htm" class="dropdown-toggle no-arrow"
 					data-toggle="tooltip" data-placement="right" title=""> <span
 						class="micon dw dw-file"></span> <span class="text-yellow">Quản lý xe đạp</span>
 				</a></li>

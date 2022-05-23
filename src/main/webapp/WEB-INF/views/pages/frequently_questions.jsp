@@ -68,13 +68,13 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="faq_content_wrapper">
-							<h4>Did you know that more than 100 million bicycles are
-								manufactured each year?</h4>
-							<p> 1 billion bicycles that are currently being used and ridden all around the
-								world? Looking at these statistics, there’s no wonder why
-								cycling is one of the best and most preferred pastimes for
-								people who wish to reduce the risk of strokes and heart
-								diseases.</p>
+							<h4>Bạn có biết rằng hơn 100 triệu chiếc xe đạp đang được
+								sản xuất mỗi năm?</h4>
+							<p>1 tỷ chiếc xe đạp hiện đang được sử dụng và chạy khắp nơi
+								thế giới? Nhìn vào những số liệu thống kê này, không có gì thắc
+								mắc tại sao đi xe đạp là một trong những trò tiêu khiển tốt nhất
+								và được ưa thích nhất cho những người muốn giảm nguy cơ đột quỵ
+								và tim bệnh tật.</p>
 						</div>
 					</div>
 				</div>
@@ -103,7 +103,7 @@
 											Quý khách có thể đặt hàng theo các cách sau: <br> + Mua
 											hàng trực tiếp trên website.<br> + Đặt hàng qua
 											Hotline(24/24): 19001000 <br> + Đặt hàng trực tiếp tại
-											shop DND: contact@dndshop.com
+											shop DNT: contact@dndshop.com
 										</p>
 									</div>
 								</div>
@@ -121,31 +121,11 @@
 									aria-labelledby="headingTwo" data-parent="#accordion">
 									<div class="card-body">
 										<p>Trong tất cả trường hợp, chúng tôi đều khuyến khích bạn
-											nên đặt hoa trước 24h, điều này giúp chúng tôi có thể giúp
-											bạn được tốt hơn. Tuy nhiên, một số trường hợp đột xuất quan
+											nên đặt trước 24h, điều này giúp chúng tôi có thể giúp bạn
+											được tốt hơn. Tuy nhiên, một số trường hợp đột xuất quan
 											trọng và những mẫu hoa đơn giản chúng tôi cũng vẫn có thể
 											chấp nhận các đơn hàng trước 1 đến 2 giờ. Chúng tôi sẽ cố
 											gắng hết sức trong khả năng cho phép để có thể giúp bạn.</p>
-									</div>
-								</div>
-							</div>
-							<div class="card card_dipult">
-								<div class="card-header card_accor" id="headingThree">
-									<button class="btn btn-link collapsed" data-toggle="collapse"
-										data-target="#collapseThree" aria-expanded="false"
-										aria-controls="collapseThree">
-										DND sẽ xác nhận đơn hàng như thế nào? <i class="fa fa-plus"></i>
-										<i class="fa fa-minus"></i>
-									</button>
-								</div>
-								<div id="collapseThree" class="collapse"
-									aria-labelledby="headingThree" data-parent="#accordion">
-									<div class="card-body">
-										<p>Khi đặt hàng thành công quý khách sẽ nhận được thông
-											báo Nội dung chi tiết đơn đặt hành thành công qua email quý
-											khách đã đăng kí trên website. Sau khi nhận được đơn đặt hàng
-											chúng tôi sẽ gọi điện thoại hoặc gửi email xác nhận đơn đặt
-											hàng với quý khách.</p>
 									</div>
 								</div>
 							</div>
@@ -154,7 +134,7 @@
 									<button class="btn btn-link collapsed" data-toggle="collapse"
 										data-target="#collapseeight" aria-expanded="false"
 										aria-controls="collapseeight">
-										Sản phẩm của DND có đảm bảo chất lượng và đúng mẫu không? <i
+										Sản phẩm của DNT có đảm bảo chất lượng và đúng mẫu không? <i
 											class="fa fa-plus"></i> <i class="fa fa-minus"></i>
 									</button>
 								</div>
@@ -163,14 +143,14 @@
 									<div class="card-body">
 										<p>
 											Tất cả các đại lý và nhà cung cấp sản phẩm,dịch vụ đã đươc
-											chọn lọc và có cam kết với DND shop để phục vụ các sản phẩm,
+											chọn lọc và có cam kết với DNT shop để phục vụ các sản phẩm,
 											dịch vụ tốt nhất đến quý khách. Bạn cứ yên tâm nhé! Nếu có
 											điều gì không hài lòng, bạn hãy phản hồi cho chúng tôi tại
-											tổng đài hoặc email: contact@dntbicycleshop.com . Chúng tôi luôn
-											lắng nghe và ghi nhận những ý kiến đóng góp của khách hàng. <br>Trong
-											trường hợp thiếu nguyên liệu về hoa, chúng tôi sẽ chủ động
-											liên hệ với quý khách để thông báo và tư vấn phương án thay
-											thế tốt nhất.
+											tổng đài hoặc email: contact@dntbicycleshop.com . Chúng tôi
+											luôn lắng nghe và ghi nhận những ý kiến đóng góp của khách
+											hàng. <br>Trong trường hợp thiếu sản phẩm, chúng tôi sẽ
+											chủ động liên hệ với quý khách để thông báo và tư vấn phương
+											án thay thế tốt nhất.
 										</p>
 									</div>
 								</div>
@@ -203,7 +183,7 @@
 									<button class="btn btn-link collapsed" data-toggle="collapse"
 										data-target="#collapsefour" aria-expanded="false"
 										aria-controls="collapsefour">
-										Tôi có nhất thiết phải đăng ký trở thành khách hàng của DND
+										Tôi có nhất thiết phải đăng ký trở thành khách hàng của DNT
 										mới được mua hàng hay không? <i class="fa fa-plus"></i> <i
 											class="fa fa-minus"></i>
 									</button>
@@ -241,7 +221,7 @@
 										data-target="#collapsesix" aria-expanded="false"
 										aria-controls="collapsesix">
 										Tôi muốn giới thiệu bạn bè và người thân tham gia mua hàng tại
-										website của DND shop thì làm thế nào? <i class="fa fa-plus"></i>
+										website của DNT shop thì làm thế nào? <i class="fa fa-plus"></i>
 										<i class="fa fa-minus"></i>
 									</button>
 								</div>
