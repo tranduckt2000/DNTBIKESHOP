@@ -115,7 +115,6 @@ public class ShopController {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("userLogin");
 		
-		// sá»‘ lÆ°á»£ng khi add vÃ o giá»� hÃ ng
 		int sl;
 		if (request.getParameter("qtt")==null) sl=1;
 		else sl = Integer.parseInt(request.getParameter("qtt"));

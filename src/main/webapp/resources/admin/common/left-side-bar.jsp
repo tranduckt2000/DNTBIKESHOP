@@ -30,6 +30,16 @@
 					data-toggle="tooltip" data-placement="right" title=""> <span
 						class="micon dw dw-ruler"></span> <span class="text-yellow">Quản lý đơn hàng</span>
 				</a></li>
+				<li class="dropdown" id="qlh" style="display: block"><a
+					href="admin/bicycle.htm" class="dropdown-toggle no-arrow"
+					data-toggle="tooltip" data-placement="right" title=""> <span
+						class="micon dw dw-file"></span> <span class="text-yellow">Quản lý tin tức</span>
+				</a></li>
+				<li class="dropdown" id="qluser" style="display: block"><a
+					href="#" class="dropdown-toggle no-arrow"
+					data-toggle="tooltip" data-placement="right" title=""> <span
+						class="micon dw dw-ruler"></span> <span class="text-yellow">Thống kê doanh thu</span>
+				</a></li>
 				<li>
 					<div class="dropdown-divider"></div>
 				</li>
